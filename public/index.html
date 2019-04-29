@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	  <title>ToDo List</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	  <link rel="stylesheet" href="./css/style.css">
+	  <script src="./js/bundle.js"></script>
+  </head>
+  <body>
+    <h1>ToDo's</h1>
+    <div id="app">
+      <input type="text" v-model="newTodo"/>
+          <input type="radio" name="priority" id="high" value="high" v-model="priority"><label for="high">High</label>
+          <input type="radio" name="priority" id="low" value="low" v-model="priority"><label for="low">Low</label>
+    	<button v-on:click="saveNewTodo">Save New Job</button>
+
+		<ul>
+			<li v-for="(todo, index) in todos" :class="todo.priority == 'high' ? 'high' : 'low'">
+				<span>{{ todo.job }}</span>
+			</li>
+		</ul>
+
+	</div>
+  </body>
+</html>
